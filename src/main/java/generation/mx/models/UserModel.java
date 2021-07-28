@@ -1,6 +1,7 @@
 package generation.mx.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -19,6 +20,9 @@ public class UserModel {
 
     @Column(nullable = false, length = 100, unique = true)
     private String email;
+
+    @OneToMany( targetEntity = PostModel.class)
+    private List<PostModel> posts;
 
     public long getId() {
         return id;
@@ -50,5 +54,13 @@ public class UserModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List posts) {
+        this.posts = posts;
     }
 }

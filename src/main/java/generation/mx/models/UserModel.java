@@ -21,7 +21,7 @@ public class UserModel {
     @Column(nullable = false, length = 100, unique = true)
     private String email;
 
-    @OneToMany( targetEntity = PostModel.class)
+    @OneToMany( targetEntity = PostModel.class, mappedBy = "user")
     private List<PostModel> posts;
 
     public long getId() {

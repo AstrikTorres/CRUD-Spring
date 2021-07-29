@@ -1,5 +1,7 @@
 package generation.mx.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,7 @@ public class PostModel {
     private String content;
 
     @ManyToOne
+    @JsonIgnore
     private UserModel user;
 
     public Long getId() {
